@@ -1,0 +1,1 @@
+require("nvide.core").setup()
