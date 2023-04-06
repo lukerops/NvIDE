@@ -22,6 +22,12 @@ return {
       { "<leader>fe", "<cmd>Neotree toggle<CR>", desc = "Explorer NeoTree (cwd)" },
     },
     opts = {
+      auto_clean_after_session_restore = true,
+      close_if_last_window = true,
+      source_selector = {
+        winbar = true,
+        content_layout = "center",
+      },
       filesystem = {
         follow_current_file = true,
       },
@@ -89,6 +95,8 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
+    -- event = "VeryLazy",
+    -- lazy = true,
     tag = "0.1.1",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
@@ -172,6 +180,9 @@ return {
         },
       },
     },
+    -- init = function()
+    --   require("telescope").load_extension("notify")
+    -- end,
   },
 
   -- git signs

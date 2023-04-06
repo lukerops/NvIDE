@@ -39,6 +39,12 @@ return {
     },
     opts = function()
       local cmp = require("cmp")
+
+      local border_opts = {
+        border = "single",
+        winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+      }
+
       return {
         completion = {
           completeopt = "menu,menuone,noinsert",
@@ -47,6 +53,14 @@ return {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end
+        },
+        confirm_opts = {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
+        },
+        window = {
+          completion = cmp.config.window.bordered(border_opts),
+          documentation = cmp.config.window.bordered(border_opts),
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-Up>"] = cmp.mapping.scroll_docs(-4),

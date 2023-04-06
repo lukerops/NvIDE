@@ -24,7 +24,12 @@ function M.setup(opts)
   -- prepare to load the plugins
   plugins = vim.tbl_deep_extend("force", { import = "nvide.plugins" }, opts or {})
 
-  require("lazy").setup(plugins)
+  require("lazy").setup({
+    spec = plugins,
+    ui = {
+      border = "rounded",
+    },
+  })
 end
 
 return M
