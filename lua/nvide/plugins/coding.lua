@@ -86,22 +86,22 @@ return {
         },
       }
     end,
-    init = function()
-      local cmp = require("cmp")
-
-      cmp.setup.cmdline('/', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' },
-        }
-      })
-
-      cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'cmdline' }
-        },
-      })
-    end
+    -- init = function()
+    --   local cmp = require("cmp")
+    --
+    --   cmp.setup.cmdline('/', {
+    --     mapping = cmp.mapping.preset.cmdline(),
+    --     sources = {
+    --       { name = 'buffer' },
+    --     }
+    --   })
+    --
+    --   cmp.setup.cmdline(':', {
+    --     mapping = cmp.mapping.preset.cmdline(),
+    --     sources = {
+    --       { name = 'cmdline' }
+    --     },
+    --   })
+    -- end
   },
 }

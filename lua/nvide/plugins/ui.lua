@@ -88,8 +88,6 @@ return {
     init = function()
       vim.opt.termguicolors = true
       vim.notify = require("notify")
-
-      require("telescope").load_extension("notify")
     end
   },
 
