@@ -29,6 +29,9 @@ return {
     },
     ---@param opts PluginLspOpts
     config = function(plugin, opts)
+      -- change LspInfo window border
+      require('lspconfig.ui.windows').default_options.border = "rounded"
+
       -- diagnostics
       vim.fn.sign_define("DiagnosticsSignError", {text = ""})
       vim.fn.sign_define("DiagnosticsSignWarning", {text = ""})
