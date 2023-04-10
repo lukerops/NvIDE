@@ -39,9 +39,7 @@ return {
         theme = "tokyonight",
         component_separators = {"", ""},
         section_separators = {"", ""},
-        disabled_filetypes = {
-          "neo-tree",
-        },
+        disabled_filetypes = {},
       },
       sections = {
         lualine_a = {"mode"},
@@ -59,8 +57,12 @@ return {
         lualine_y = {},
         lualine_z = {}
       },
-      tabline = {},
-      extensions = {}
+      extensions = {
+        "lazy",
+        "neo-tree",
+        "nvim-dap-ui",
+        "trouble",
+      },
     },
   },
 
