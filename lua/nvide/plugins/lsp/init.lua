@@ -23,7 +23,8 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        terraformls = {}
+        terraformls = {},
+        dockerls = {},
       }
     },
     ---@param opts PluginLspOpts
