@@ -18,6 +18,12 @@ return {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
       "williamboman/mason-lspconfig.nvim",
+      {
+        "SmiteshP/nvim-navic",
+        opts = {
+          highlight = true,
+        },
+      },
     },
     ---@class PluginLspOpts
     opts = {
@@ -31,6 +37,9 @@ return {
     config = function(plugin, opts)
       -- change LspInfo window border
       require('lspconfig.ui.windows').default_options.border = "rounded"
+
+      -- config navic as winbar (breadcrumb)
+      vim.o.winbar = "  %{%v:lua.require('nvim-navic').get_location()%}"
 
       -- diagnostics
       vim.fn.sign_define("DiagnosticsSignError", {text = ""})
@@ -51,8 +60,12 @@ return {
       require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
       for server, config in pairs(servers) do
         require("lspconfig")[server].setup(vim.tbl_deep_extend("force", config, {
-          -- on_attach = on_attach,
           capabilities = capabilities,
+          on_attach = function(client, bufnr)
+            if client.server_capabilities.documentSymbolProvider then
+              require("nvim-navic").attach(client, bufnr)
+            end
+          end,
         }))
       end
     end,
