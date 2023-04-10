@@ -41,7 +41,7 @@ return {
       local cmp = require("cmp")
 
       local border_opts = {
-        border = "single",
+        border = "rounded",
         winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
       }
 
