@@ -229,4 +229,11 @@ return {
       { "<leader>xT", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
     },
   },
+
+  -- comments
+  {
+    "numToStr/Comment.nvim",
+    event = "BufReadPost",
+    opts = {},
+  },
 }
